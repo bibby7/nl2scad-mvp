@@ -109,6 +109,7 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      statusEl.className = "note";
       statusEl.textContent = "Submitting...";
       const data = Object.fromEntries(new FormData(form).entries());
 
@@ -125,8 +126,10 @@
 
         if (!res.ok) throw new Error("Failed to submit");
         form.reset();
+        statusEl.classList.add("success");
         statusEl.textContent = "Thanks — you’re on the list!";
       } catch (err) {
+        statusEl.classList.add("error");
         statusEl.textContent = "Something went wrong. Please try again.";
       }
     });
