@@ -84,7 +84,7 @@
     <div class="container">
       <h2>Join the waitlist</h2>
       <p>Be first to try it. We’re inviting small batches of makers and 3D print shops.</p>
-      <form class="form" action="#" method="post">
+      <form id="waitlistForm" class="form">
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <select name="role" required>
@@ -96,9 +96,41 @@
         <textarea name="usecase" rows="3" placeholder="What do you want to build?"></textarea>
         <button type="submit" class="btn primary">Request access</button>
       </form>
-      <p class="note">Form is placeholder — I can wire it to a provider once you pick one (Render + Formspree, Tally, etc.).</p>
+      <p id="waitlistStatus" class="note"></p>
     </div>
   </section>
+
+  <script>
+    const SUPABASE_URL = "https://okebvacznadfeyaohobl.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rZWJ2YWN6bmFkZmV5YW9ob2JsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyMTU1NDIsImV4cCI6MjA4ODc5MTU0Mn0.c3l7FMMHWdeLHF1WwKKtxgVe2je1VTr6KFqNVDkvywc";
+
+    const form = document.getElementById("waitlistForm");
+    const statusEl = document.getElementById("waitlistStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "Submitting...";
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) throw new Error("Failed to submit");
+        form.reset();
+        statusEl.textContent = "Thanks — you’re on the list!";
+      } catch (err) {
+        statusEl.textContent = "Something went wrong. Please try again.";
+      }
+    });
+  </script>
 
   <footer class="footer">
     <div class="container">
