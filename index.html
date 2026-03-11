@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NL → OpenSCAD for 3D Printing</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="badge">Early Access</div>
+      <h1>Turn plain English into printable CAD in seconds.</h1>
+      <p class="subhead">
+        Describe your part + measurements and get clean, parametric OpenSCAD and STL instantly.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#waitlist">Join the waitlist</a>
+        <a class="btn ghost" href="#examples">See example</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="why">
+    <div class="container grid">
+      <div>
+        <h2>Why it matters</h2>
+        <ul>
+          <li><strong>Parametric by default</strong> — edit dimensions anytime</li>
+          <li><strong>Printable output</strong> — watertight, manifold, STL‑ready</li>
+          <li><strong>Fast iteration</strong> — tweak in plain English</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How it works</h3>
+        <ol>
+          <li>Describe your part + measurements</li>
+          <li>We generate clean OpenSCAD</li>
+          <li>Export STL and print</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="examples">
+    <div class="container">
+      <h2>Example prompt</h2>
+      <pre class="prompt">“Make a hollow cylinder, inner diameter 6mm, wall 2mm, height 15mm.”</pre>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="grid three">
+        <div class="card">Natural language → OpenSCAD</div>
+        <div class="card">Auto‑validation (watertight STL checks)</div>
+        <div class="card">Version history + STL export</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2>Pricing (launch)</h2>
+      <div class="grid three">
+        <div class="card">
+          <h3>Free</h3>
+          <p>10 generations/week</p>
+        </div>
+        <div class="card highlight">
+          <h3>Pro — $19/mo</h3>
+          <p>300 generations/month + STL export</p>
+        </div>
+        <div class="card">
+          <h3>Team — $99/mo</h3>
+          <p>Shared library + API access</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="waitlist">
+    <div class="container">
+      <h2>Join the waitlist</h2>
+      <p>Be first to try it. We’re inviting small batches of makers and 3D print shops.</p>
+      <form class="form" action="#" method="post">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <select name="role" required>
+          <option value="" disabled selected>Role</option>
+          <option>Hobbyist</option>
+          <option>Designer</option>
+          <option>Print shop</option>
+        </select>
+        <textarea name="usecase" rows="3" placeholder="What do you want to build?"></textarea>
+        <button type="submit" class="btn primary">Request access</button>
+      </form>
+      <p class="note">Form is placeholder — I can wire it to a provider once you pick one (Render + Formspree, Tally, etc.).</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NL → OpenSCAD. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

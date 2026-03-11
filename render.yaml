@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: nl2scad-landing
+    env: static
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
